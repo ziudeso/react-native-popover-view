@@ -272,7 +272,7 @@ class Popover extends React.Component {
       }
     }
 
-    
+
     if (!newGeom) {
       const minY = displayArea.y;
       const minX = displayArea.x;
@@ -859,9 +859,11 @@ class Popover extends React.Component {
           </TouchableWithoutFeedback>
 
           <View style={{top: 0, left: 0}}>
-            
+
             <Animated.View style={popoverViewStyle} onLayout={evt => this.measureContent(evt.nativeEvent.layout)}>
-              {this.props.children}
+              <TouchableWithoutFeedback onPress={this.props.onClose}>
+                {this.props.children}
+              </TouchableWithoutFeedback>
             </Animated.View>
 
             {this.state.showArrow &&
